@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-initial-schema.sql
+
+  - include:
+      file: db/changelog/changes/002-rename-expiration-date.sql
