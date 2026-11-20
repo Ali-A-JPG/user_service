@@ -1,7 +1,7 @@
 package com.innowise.academy.userservice;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import com.innowise.academy.userservice.model.User;
+import com.innowise.academy.userservice.model.UserEntity;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,13 +14,13 @@ import java.time.Instant;
 
 @SpringBootTest
 @Transactional
-public class UserAuditingTest {
+public class UserEntityAuditingTest {
     @Autowired
     private EntityManager entityManager;
 
     @Test
     void TimeStampUserCreation() {
-        User user = new User( "Alex", "Smith", LocalDate.of(2000,1,1), "alexandros.test@example.invalid");
+        UserEntity user = new UserEntity( "Alex", "Smith", LocalDate.of(2000,1,1), "alexandros.test@example.invalid");
         entityManager.persist(user);
         entityManager.flush();
         assertNotNull(user.getCreatedAt());
@@ -29,7 +29,7 @@ public class UserAuditingTest {
 
     @Test
     void TimeStampUserUpdate() {
-        User user = new User(
+        UserEntity user = new UserEntity(
                 "Alex", "Smith", LocalDate.of(2000,1,1), "alexandros.test@example.invalid");
         entityManager.persist(user);
         entityManager.flush();

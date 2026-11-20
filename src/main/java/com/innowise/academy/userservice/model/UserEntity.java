@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table( name = "users")
-public class User extends AuditableEntity {
+public class UserEntity extends AuditableEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -28,9 +28,9 @@ public class User extends AuditableEntity {
   @Column (name = "active", nullable = false)
     private Boolean active = true;
 
-  protected User() {}
+  protected UserEntity() {}
 
-    public User(String name, String surname, LocalDate birthDate, String email) {
+    public UserEntity(String name, String surname, LocalDate birthDate, String email) {
       this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
